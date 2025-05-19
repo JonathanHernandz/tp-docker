@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  tp:
+    build: tarjeta-puntos-spring
+    ports:
+     - "8080:8080"
+    environment:
+      DB_URL: jdbc:mysql://tarjeta_pts:3306/tarjeta_puntos_db?createDatabaseIfNotExist=true
+      DB_USER_NAME: root
+      DB_PASSWORD: admin
+      MAIL_PORT: 587
+      MAIL_USER_NAME: contacto@miishelados.com
+      MAIL_PASSWORD: Contacto25.
+    restart: always
+    depends_on:
+      tarjeta_pts:
+        condition: service_healthy
+  tarjeta_pts:
+    image: mysql:8.0.42
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_PASSWORD: admin
+      MYSQL_DATABASE: tarjeta_puntos_db
+    restart: always
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 10s
+      retries: 10
