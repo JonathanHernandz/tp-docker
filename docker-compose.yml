@@ -2,7 +2,9 @@ version: '3'
 
 services:
   tp:
-    build: tarjeta-puntos-spring
+    build: 
+      context: ./tarjeta-puntos-spring
+      dockerfile: Dockerfile
     ports:
      - "8080:8080"
     environment:
