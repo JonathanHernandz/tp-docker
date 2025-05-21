@@ -97,7 +97,7 @@ public class ClienteController {
         }
         Cliente nuevoCliente = clienteService.crearCliente(cliente);
 
-        String linkVerificacion = "http://localhost:8080/api/cliente/verificar?token="
+        String linkVerificacion = "https://api-helados.arashi.solutions/api/cliente/verificar?token="
                 + verificacionTokenRepository.findByCliente(nuevoCliente).getToken();
 
         String mensaje = "<html>"

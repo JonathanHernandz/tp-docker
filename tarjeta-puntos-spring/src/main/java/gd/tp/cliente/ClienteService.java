@@ -122,15 +122,16 @@ public class ClienteService {
         tarjetaRepository.save(tarjeta);
 
 
-        String qrUrl = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + cliente.getNumero();
+        String qrUrl = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + idTarjeta;
 
         String mensaje = "<html>"
                 + "<p>Hola " + cliente.getNombre() + ",</p>"
-                + "<p>Tu cuenta ha sido verificada exitosamente. 🎉</p>"
+                + "<p>🎉 Tu cuenta ha sido verificada exitosamente. 🎉</p>"
                 + "<p>Ya puedes disfrutar de nuestras promociones en MIISHELADOS.</p>"
+                + "<p>Este es tú numero de Tarjeta💳:" + idTarjeta + "</p>"
                 + "<p>Este es tu código QR:</p>"
                 + "<p><img src='" + qrUrl + "' alt='QR Code' width='150' height='150' /></p>"
-                + "<p><a href=\"https://miishelados.com/\" target=\"_blank\">Ir al sitio</a></p>"
+                + "<p><a href=\"https://membresiasvip.miishelados.com/consulta/\" target=\"_blank\">Ir al sitio</a></p>"
                 + "<p>Saludos,<br>MIISHELADOS</p>"
                 + "</html>";
 
