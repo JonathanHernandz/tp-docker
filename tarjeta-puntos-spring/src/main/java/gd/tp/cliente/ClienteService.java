@@ -122,7 +122,7 @@ public class ClienteService {
         tarjetaRepository.save(tarjeta);
 
 
-        String qrUrl = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + idTarjeta;
+        String qrUrl = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + "https://membresiasvip.miishelados.com/clienteReview?id=" + idTarjeta;
 
         String mensaje = "<html>"
                 + "<p>Hola " + cliente.getNombre() + ",</p>"
