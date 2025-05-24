@@ -1,12 +1,6 @@
 package gd.tp.transaccion.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-
 import java.util.List;
-
-@Data
 
 public class CompraResponse {
     private String mensaje;
@@ -21,7 +15,6 @@ public class CompraResponse {
         this.detalles = detalles;
     }
 
-    @Getter
     public static  class DetalleCompra{
 
         private  String producto;

@@ -14,7 +14,6 @@ import gd.tp.transaccion.dto.CanjeResponse;
 import gd.tp.transaccion.dto.CompraItemRequest;
 import gd.tp.transaccion.dto.CompraResponse;
 import jakarta.transaction.Transactional;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +24,6 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class TransaccionService {
 
     private final ClienteRepository clienteRepository;
@@ -35,8 +33,15 @@ public class TransaccionService {
     private final TransaccionRepository transaccionRepository;
     private final NivelRepository nivelRepository;
 
-
-
+    @Autowired
+    public TransaccionService(ClienteRepository clienteRepository, TarjetaRepository tarjetaRepository, ProductoRepository productoRepository, RecompensaRepository recompensaRepository, TransaccionRepository transaccionRepository, NivelRepository nivelRepository) {
+        this.clienteRepository = clienteRepository;
+        this.tarjetaRepository = tarjetaRepository;
+        this.productoRepository = productoRepository;
+        this.recompensaRepository = recompensaRepository;
+        this.transaccionRepository = transaccionRepository;
+        this.nivelRepository = nivelRepository;
+    }
 
     public List<Transaccion> getAllTransaccion(){
         return transaccionRepository.findAll();

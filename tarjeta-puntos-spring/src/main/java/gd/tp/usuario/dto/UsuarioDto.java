@@ -1,11 +1,7 @@
 package gd.tp.usuario.dto;
 
 import gd.tp.usuario.Usuario;
-import lombok.AllArgsConstructor;
-import lombok.Data;
 
-@Data
-@AllArgsConstructor
 public class UsuarioDto {
 
     private Long idUsuario;

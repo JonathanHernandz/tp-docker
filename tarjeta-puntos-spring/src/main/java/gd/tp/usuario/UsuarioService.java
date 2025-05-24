@@ -1,6 +1,5 @@
 package gd.tp.usuario;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -9,7 +8,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
 public class UsuarioService {
 
 
@@ -19,6 +17,10 @@ public class UsuarioService {
 
     private final PasswordEncoder passwordEncoder;
 
+    public UsuarioService(UsuarioRepository usuarioRepository, PasswordEncoder passwordEncoder) {
+        this.usuarioRepository = usuarioRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     public List<Usuario> getAllUsuario(){
         return usuarioRepository.findAll();

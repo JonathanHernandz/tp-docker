@@ -7,19 +7,11 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import gd.tp.cliente.Cliente;
 import gd.tp.nivel.Nivel;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.util.Date;
 
-@Entity
+
 @Table(name = "Tarjeta")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class Tarjeta {
 
     @Id
@@ -48,5 +40,61 @@ public class Tarjeta {
     @JoinColumn(name = "idNivel", nullable = false)
     private Nivel nivel;
 
+    public String getIdTarjeta() {
+        return idTarjeta;
+    }
 
+    public void setIdTarjeta(String idTarjeta) {
+        this.idTarjeta = idTarjeta;
+    }
+
+    public double getSaldoPuntos() {
+        return saldoPuntos;
+    }
+
+    public void setSaldoPuntos(double saldoPuntos) {
+        this.saldoPuntos = saldoPuntos;
+    }
+
+    public Date getFechaEmision() {
+        return fechaEmision;
+    }
+
+    public void setFechaEmision(Date fechaEmision) {
+        this.fechaEmision = fechaEmision;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Nivel getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(Nivel nivel) {
+        this.nivel = nivel;
+    }
+
+    @Override
+    public String toString() {
+        return "Tarjeta{" +
+                "idTarjeta='" + idTarjeta + '\'' +
+                ", saldoPuntos=" + saldoPuntos +
+                ", fechaEmision=" + fechaEmision +
+                ", estado=" + estado +
+                '}';
+    }
 }
